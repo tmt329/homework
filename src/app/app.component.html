@@ -1,0 +1,43 @@
+
+<div>Post({{Post.length}})</div>
+<div class="container" *ngFor="let post of Post">
+
+  <div>by {{post.user}} at {{post.timestamp| date }}</div>
+  <hr>
+  <div class="comment-content" [class.show]="!post.showCommentBox" >
+      {{post.comment}}
+ 
+ 
+    
+  </div>
+  <form action=" "   (keyup.enter)="OnInput($event, post)" [class.show]="post.showCommentBox" > 
+    <textarea name="" id="" cols="100" rows="10"  value="{{post.comment}}"  name="comment " #box></textarea>
+    <button type="submit" (click)="save(post, box.value)">
+      Save
+    </button>
+  </form>
+
+
+  <div class="btn-item">
+    <button type="button" class="btn btn-outline-primary" (click)="editChange(post, box.value)">{{post.showCommentBox ? "Edit" : "Dismiss"}}</button>
+   
+    <button type="button" class="btn btn-outline-danger" (click)="delete(post)" >Delete</button>
+  </div>
+</div>
+
+<div> Add New Comment</div>
+<form class="container" style="height: 300px;" #newCmt (ngSubmit)="resetFrom(newCmt)">
+  <label for=""  id="userName">User </label>
+  <br>
+  <input type="text" #user id="userNameInput">
+  <br>
+  <label for="">Comment</label>
+  <br>
+  <textarea name="newComment" id="comment" cols="100" rows="10" #comment (keyup)="changeSend(comment.value)" ></textarea>
+  <br>
+
+  <button type="submit" class="btn btn-danger"  (click)="post(user.value, comment.value)" id="send" >Send</button>
+
+</form>
+
+

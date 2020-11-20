@@ -1,0 +1,33 @@
+.container
+{
+    box-sizing: border-box;
+    border: 1px solid black;
+    padding: 10px;
+    margin-bottom: 10px;
+    height: 230px;
+}
+.comment-content
+{
+    margin: 10px; 
+    display: flex;
+    
+}
+.comment-content
+{
+    position: absolute;
+}
+textarea
+{
+    height: 100px;
+    padding: 0;
+    
+}
+.show 
+{
+    visibility: hidden;
+}
+
+#send:hover
+{
+    cursor: pointer;
+}
